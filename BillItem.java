@@ -29,10 +29,7 @@ public class BillItem implements Serializable {
     public double getDiscount(){
         return discount;
     }
-    public void print(){
-        System.out.println("Item Name : "+itemName+" | Item Price : "+itemprice+" | Quentity : "+quentity);
-        System.out.println("Net Price : "+(itemprice*quentity));
-        System.out.println("Discount  : "+(itemprice*(discountprecentage/100)*quentity));
-
+    public void printDetails(){
+        System.out.println("Items Code"+"\t"+itemName+"\t"+itemprice+"\t"+quentity+"\t"+(itemprice*(discountprecentage/100)*quentity)+"\t"+(itemprice*quentity));
     }
 }
