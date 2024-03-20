@@ -1,4 +1,6 @@
-public class GroceryItem {
+import java.io.Serializable;
+
+public class GroceryItem implements Serializable {
     private int itemCode;
     private String itemName;
     private double unitPrice;

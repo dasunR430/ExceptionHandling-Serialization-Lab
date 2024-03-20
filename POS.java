@@ -22,11 +22,12 @@ public class POS {
 
             if (option.equals("1")) {
                 billing(createBill());
-                break;
             } else if (option.equals("2")) {
                 Bill bill = Bill.getHeldBill();
-                billing(bill);
-                break;
+                if(bill != null) {
+                    bill.showCurrentDetails();
+                    billing(bill);
+                }
             } else if (option.equals("3")) {
                 break;
             }
@@ -43,6 +44,7 @@ public class POS {
             Customer cutomer = new Customers().getCustomer(phone);
             bill = new Bill(cashierName, branch, cutomer.getName());
         } catch (CustomerNotFound e) {
+            System.out.println("Customer is not Register! Continuing without customer name.");
             bill = new Bill(cashierName,branch);
         }
         return bill;
@@ -60,7 +62,8 @@ public class POS {
                 if(gItem != null){
                     gItem.showDetails();
                     System.out.print("Enter the quantity: ");
-                    double quantity = Double.parseDouble(scanner.nextLine());
+                    String quantityString = scanner.nextLine();
+                    double quantity = Double.parseDouble(quantityString);
                     bill.addItem(new BillItem(gItem, quantity));
                     System.out.println("Item Added Successfully");
                 }
@@ -70,20 +73,21 @@ public class POS {
                 break;
             } else if (option.equals("3")) {
                 bill.holdBill();
+                System.out.println("Bill Held Successfully");
+                break;
             }
 
         }
     }
 
-    public GroceryItem getItemDetails() {
+    private GroceryItem getItemDetails() {
         GroceryItem item = null;
         try {
             InputStreamReader r = new InputStreamReader(System.in); BufferedReader br = new BufferedReader(r);
+            System.out.print("Enter the item code: ");
             int item_code = Integer.parseInt(br.readLine());
             item = null;
             item = new Store().getItem(item_code);
-            br.close();
-            r.close();
         } catch (ItemCodeNotFound | IOException e) {
             System.out.println("Item not found!");
         }

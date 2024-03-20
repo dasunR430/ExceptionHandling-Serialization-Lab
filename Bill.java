@@ -40,7 +40,7 @@ public class Bill implements Serializable {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String timeString = timeFormat.format(currentDate);
 
-        System.out.println("***** Super-Saving supermarket *****");
+        System.out.println("\n***** Super-Saving supermarket *****");
         System.out.println("Cashier Name: "+cashierName);
         System.out.println("Branch: "+branch);
         System.out.println("Customer Name: "+customerName);
@@ -101,7 +101,7 @@ public class Bill implements Serializable {
             System.out.println("Bill Retrieving Failed!");
         } finally {
             try {
-                objectInputStream.close();
+                if(objectInputStream != null) objectInputStream.close();
             } catch (IOException e) {
                 System.out.println("ObjectInputStream closing Failed!");
             }

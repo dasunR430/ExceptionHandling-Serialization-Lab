@@ -27,6 +27,6 @@ public class BillItem implements Serializable {
         return discount;
     }
     public void printDetails(){
-        System.out.println(groceryItem.getItemCode()+"\t"+groceryItem.get+"\t"+ groceryItem.getUnitPrice()+"\t"+ quantity +"\t"+discount+"\t"+netprice);
+        System.out.println(groceryItem.getItemCode()+"\t"+groceryItem.getItemName()+"\t"+ groceryItem.getUnitPrice()+"\t"+ quantity +"\t"+discount+"\t"+netprice);
     }
 }

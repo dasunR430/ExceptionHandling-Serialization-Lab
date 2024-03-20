@@ -3,6 +3,9 @@ import java.util.List;
 
 public class Customers {
     List<Customer> customerList = new ArrayList<>();
+    public Customers(){
+        setCustomers();
+    }
 
 
     private void setCustomers(){
