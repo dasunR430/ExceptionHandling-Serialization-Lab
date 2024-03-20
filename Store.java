@@ -9,7 +9,7 @@ public class Store {
             instance = new Store();
         }
         return instance;
-    }//
+    }//asd
 
     List<GroceryItem> items = new ArrayList<>(); //List of items in the store
 

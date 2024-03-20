@@ -7,6 +7,7 @@ public class GroceryItem {
     private String dateOfExpiry;
     private String manufacturerName;
     private double discountRate;
+    //asd
 
 
     public GroceryItem(int itemCode,String itemName, double unitPrice, String weightOrSize, String dateOfManufacture, String dateOfExpiry, String manufacturerName, double discountRate) {
