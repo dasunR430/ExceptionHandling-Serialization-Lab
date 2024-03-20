@@ -1,15 +1,18 @@
 public class GroceryItem {
     private int itemCode;
+    private String itemName;
     private double unitPrice;
     private String weightOrSize;
     private String dateOfManufacture;
     private String dateOfExpiry;
     private String manufacturerName;
     private double discountRate;
+    //asd
 
 
-    public GroceryItem(int itemCode, double unitPrice, String weightOrSize, String dateOfManufacture, String dateOfExpiry, String manufacturerName, double discountRate) {
+    public GroceryItem(int itemCode,String itemName, double unitPrice, String weightOrSize, String dateOfManufacture, String dateOfExpiry, String manufacturerName, double discountRate) {
         this.itemCode = itemCode;
+        this.itemName = itemName;
         this.unitPrice = unitPrice;
         this.weightOrSize = weightOrSize;
         this.dateOfManufacture = dateOfManufacture;
@@ -20,6 +23,10 @@ public class GroceryItem {
 
     public int getItemCode() {
         return itemCode;
+    }
+
+    public String getItemName() {
+        return itemName;
     }
 
     public void setItemCode(int itemCode) {
