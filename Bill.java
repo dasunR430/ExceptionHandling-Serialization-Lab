@@ -60,6 +60,7 @@ public class Bill implements Serializable {
         System.out.println("Total Price: "+totalPrice);
     }
 
+    // Save this bill in a file after serializing this object when holding
     public void holdBill()  {
         ObjectOutputStream objectOutputStream = null;
         try {
@@ -78,6 +79,8 @@ public class Bill implements Serializable {
         }
 
     }
+
+    // To show details of the bill taken after deserialization
     public void showCurrentDetails() {
         System.out.println("Held bill details");
         System.out.println("Items");
@@ -91,6 +94,8 @@ public class Bill implements Serializable {
         }
         System.out.println();
     }
+
+    // Get the held bill from the file and deserialize and return the bill object
     public static Bill getHeldBill() {
         ObjectInputStream objectInputStream = null;
         try {

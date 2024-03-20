@@ -38,6 +38,7 @@ public class Customers {
                 return customer;
             }
         }
+        // Throw the CustomerNotFound exception is the customer is not registered and not the customersList
         throw new CustomerNotFound();
     }
 }

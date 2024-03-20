@@ -34,6 +34,7 @@ public class POS {
         }
     }
 
+    // Initialy creating a bill
     private Bill createBill(){
         System.out.println("Billing....");
         System.out.print("Enter customer phone number: ");
@@ -80,6 +81,8 @@ public class POS {
         }
     }
 
+
+    // Get the item of the given item code from the database and return it
     private GroceryItem getItemDetails() {
         GroceryItem item = null;
         try {
@@ -88,10 +91,15 @@ public class POS {
             int item_code = Integer.parseInt(br.readLine());
             item = null;
             item = new Store().getItem(item_code);
-        } catch (ItemCodeNotFound | IOException e) {
+        } catch (ItemCodeNotFound e) {
+            // If the item is not found in the database
             System.out.println("Item not found!");
         }
+        catch (IOException e){
+            System.out.println(e.getMessage());
+        }
 
+        // return null if an exception thrown and caught
         return item;
     }
 }
