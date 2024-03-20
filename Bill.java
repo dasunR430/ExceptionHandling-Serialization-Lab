@@ -78,4 +78,17 @@ public class Bill implements Serializable {
         }
 
     }
+    public void showCurrentDetails(){
+        System.out.println("Held bill details");
+        System.out.println("Items");
+        System.out.println("Items Code\tItem Name\tUnit Price\tQuantity\tDiscount\tNet Price");
+
+        for(int i=0; i<billItems.size(); i++){
+            BillItem billItem = billItems.get(i);
+            System.out.print((i+1)+". "); billItem.printDetails();
+
+        }
+        System.out.println();
+
+    }
 }
