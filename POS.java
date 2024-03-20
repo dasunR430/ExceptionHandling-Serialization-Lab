@@ -34,7 +34,7 @@ public class POS {
         }
     }
 
-    // Initialy creating a bill
+    // Initially creating a bill
     private Bill createBill(){
         System.out.println("Billing....");
         System.out.print("Enter customer phone number: ");
@@ -63,10 +63,15 @@ public class POS {
                 if(gItem != null){
                     gItem.showDetails();
                     System.out.print("Enter the quantity: ");
-                    String quantityString = scanner.nextLine();
-                    double quantity = Double.parseDouble(quantityString);
-                    bill.addItem(new BillItem(gItem, quantity));
-                    System.out.println("Item Added Successfully");
+                    try{
+                        String quantityString = scanner.nextLine();
+                        double quantity = Double.parseDouble(quantityString);
+                        bill.addItem(new BillItem(gItem, quantity));
+                        System.out.println("Item Added Successfully");
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println("Invalid Input. Item not added!");
+                    }
                 }
 
             } else if (option.equals("2")) {
@@ -97,6 +102,9 @@ public class POS {
         }
         catch (IOException e){
             System.out.println(e.getMessage());
+        }
+        catch (NumberFormatException e){
+            System.out.println("Invalid Input!");
         }
 
         // return null if an exception thrown and caught
