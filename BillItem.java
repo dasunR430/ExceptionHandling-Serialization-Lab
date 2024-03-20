@@ -2,26 +2,23 @@ import java.io.Serializable;
 
 public class BillItem implements Serializable {
 
-    private String itemName;
-    private double itemprice;
-    private double discountprecentage;
-    private double quentity;
+    private GroceryItem groceryItem;
+    private double quantity;
     private double netprice;
     private double discount;
 
-    public BillItem(String itemName,double itemprice,double discountprecentage,double quentity){
-        this.itemName=itemName;
-        this.discountprecentage=discountprecentage;
-        this.quentity=quentity;
-        this.itemprice=itemprice;
-        calculate_netprice();
+    public BillItem(GroceryItem groceryItem, double quantity) {
+        this.groceryItem = groceryItem;
+        this.quantity = quantity;
         calculate_discount();
+        calculate_netprice();
     }
+
     public void calculate_netprice(){
-        netprice=itemprice*quentity;
+        netprice= groceryItem.getUnitPrice()* quantity;
     }
     public void calculate_discount(){
-        discount=itemprice*(discountprecentage/100)*quentity;
+        discount=(groceryItem.getUnitPrice()* groceryItem.getDiscount())/100* quantity;
     }
     public double getNetPrice(){
         return netprice;
@@ -30,6 +27,6 @@ public class BillItem implements Serializable {
         return discount;
     }
     public void printDetails(){
-        System.out.println("Items Code"+"\t"+itemName+"\t"+itemprice+"\t"+quentity+"\t"+(itemprice*(discountprecentage/100)*quentity)+"\t"+(itemprice*quentity));
+        System.out.println(groceryItem.getItemCode()+"\t"+groceryItem.get+"\t"+ groceryItem.getUnitPrice()+"\t"+ quantity +"\t"+discount+"\t"+netprice);
     }
 }

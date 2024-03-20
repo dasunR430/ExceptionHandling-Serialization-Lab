@@ -73,7 +73,7 @@ public class Bill implements Serializable {
             try {
                 objectOutputStream.close();
             } catch (IOException e) {
-                System.out.println("Bill holding Failed!");
+                System.out.println("ObjectOutputStream closing Failed!");
             }
         }
 
@@ -90,5 +90,20 @@ public class Bill implements Serializable {
         }
         System.out.println();
 
+    public static Bill getHeldBill(){
+        ObjectInputStream objectInputStream = null;
+        try {
+            objectInputStream = new ObjectInputStream(new FileInputStream("BillsOnHold.ser"));
+            Bill bill = (Bill) objectInputStream.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Bill Retrieving Failed!");
+        } finally {
+            try {
+                objectInputStream.close();
+            } catch (IOException e) {
+                System.out.println("ObjectInputStream closing Failed!");
+            }
+        }
     }
 }
