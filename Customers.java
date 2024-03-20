@@ -18,6 +18,15 @@ public class Customers {
         Customer customer10 = new Customer("Janaka Perera", "0798765432");
 
         customerList.add(customer1);
+        customerList.add(customer2);
+        customerList.add(customer3);
+        customerList.add(customer4);
+        customerList.add(customer5);
+        customerList.add(customer6);
+        customerList.add(customer7);
+        customerList.add(customer8);
+        customerList.add(customer9);
+        customerList.add(customer10);
     }
 
     public Customer getCustomer(String phoneNo) throws CustomerNotFound {
