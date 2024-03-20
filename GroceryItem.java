@@ -74,4 +74,13 @@ public class GroceryItem {
         this.discountRate = discountRate;
     }
 
+    public  void showDetails(){
+        System.out.println("Item Code           : "+itemCode);
+        System.out.println("Unit price          : "+unitPrice);
+        System.out.println("Weight or Size      : "+weightOrSize);
+        System.out.println("Date of Manufacture : "+dateOfManufacture);
+        System.out.println("Date of Expiry      : "+dateOfExpiry);
+        System.out.println("Manufacturer Name   : "+manufacturerName);
+        System.out.println("Discount Rate       : "+discountRate);
+    }
 }
